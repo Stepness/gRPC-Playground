@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcServer";
+
+service Client {
+	rpc GetClientInfo (ClientLookupModel) returns (ClientModel);
+}
+
+message ClientLookupModel{
+	int32 Id = 1;
+}
+
+message ClientModel {
+	string firstName = 1;
+	string lastName = 2;
+	bool isIt = 4;
+	int32 age = 3;
+}
