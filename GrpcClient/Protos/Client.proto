@@ -4,6 +4,7 @@ option csharp_namespace = "GrpcServer";
 
 service Client {
 	rpc GetClientInfo (ClientLookupModel) returns (ClientModel);
+	rpc SaveClientInfo (ClientModel) returns (ReturnSaveStatus);
 }
 
 message ClientLookupModel{
@@ -15,4 +16,8 @@ message ClientModel {
 	string lastName = 2;
 	bool isIt = 4;
 	int32 age = 3;
+}
+
+message ReturnSaveStatus{
+	bool Success = 1;
 }

@@ -43,5 +43,26 @@ namespace GrpcServer.Services
 
             return Task.FromResult(output);
         }
+
+        public override Task<ReturnSaveStatus> SaveClientInfo(ClientModel modelGoingToBeSaved, ServerCallContext context)
+        {
+            ReturnSaveStatus output = new ReturnSaveStatus();
+            output.Success = true;
+            try
+            {
+                //Stuff with any kind of ORM that involves "modelGoingToBeSaved"
+
+                int age = modelGoingToBeSaved.Age;
+                string name = modelGoingToBeSaved.FirstName;
+                string surname = modelGoingToBeSaved.LastName;
+                bool isIt = modelGoingToBeSaved.IsIt;
+            }
+            catch
+            {
+                output.Success = false;
+            }
+
+            return Task.FromResult(output);
+        }
     }
 }
